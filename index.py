@@ -14,7 +14,6 @@ def display_top_5_rows(file):
         return f"Error: {str(e)}"
 
 # Process CSV and Answer Questions
-
 async def process_csv(file, question):
     """
     Processes CSV and queries the LLM for structured output.
@@ -23,11 +22,10 @@ async def process_csv(file, question):
         if not question.strip():
             return "Error: Please enter a valid question."
 
-        # Query the CSV Analyst
         result = await ask_llm(question, file)
 
         if isinstance(result, dict):
-            return f"🗨️ **Answer:** {result['answer']}\n✅ **Confidence:** {result['confidence']:.2f}"
+            return f" **Answer:** {result['answer']}\n **Confidence:** {result['confidence']:.2f}"
         else:
             return result
 
